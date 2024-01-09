@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Theme from "./Theme";
-import GlobalSearch from "@/components/search/GlobalSearch";
+import GlobalSearch from "@/components/shared/search/GlobalSearch";
 import MobileNav from "./MobileNav";
 // TODO
 // 1) ShadCN se ui leke aake theme wala implement karna hai
