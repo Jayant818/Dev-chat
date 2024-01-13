@@ -19,6 +19,7 @@ import { questionSchema } from "@/lib/validations";
 import * as z from "zod";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
+import { createQuestion } from "@/lib/actions/question.action";
 
 export function ProfileForm() {
 	// 1. Define your form.
@@ -42,7 +43,7 @@ const Question = () => {
 	});
 
 	// 2. Define a submit handler.
-	function onSubmit(values: z.infer<typeof questionSchema>) {
+	async function onSubmit(values: z.infer<typeof questionSchema>) {
 		// Do something with the form values.
 		// ✅ This will be type-safe and validated.
 		setisSubmitting(true);
@@ -51,6 +52,7 @@ const Question = () => {
 			// Get all the values from the form
 			// make an async call to your  API - Create a Question | Edit a Question
 			// Direct to the Home Page if SuccessFull
+			await createQuestion({});
 		} catch (error) {
 		} finally {
 			setisSubmitting(false);
@@ -234,7 +236,6 @@ const Question = () => {
 					) : (
 						<>{isSubmitting ? "Posting..." : "Ask a Question"}</>
 					)}
-					Ask Question
 				</Button>
 			</form>
 		</Form>
