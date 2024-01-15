@@ -18,7 +18,7 @@ interface QuestionProps {
 	};
 	upVotes: number;
 	// answer: number;
-	answer: Array<object>;
+	answers: Array<object>;
 	views: number;
 	createdAt: Date;
 }
@@ -29,7 +29,7 @@ const QuestionCards = ({
 	tags,
 	author,
 	upVotes,
-	answer,
+	answers,
 	views,
 	createdAt,
 }: QuestionProps) => {
@@ -74,7 +74,7 @@ const QuestionCards = ({
 					<Metric
 						imgUrl="/assets/icons/message.svg"
 						alt="Message"
-						value={getFormattedNumber(answer.length)}
+						value={getFormattedNumber(answers.length)}
 						title=" Answers"
 						textStyles="small-medium text-dark400_light800"
 					/>

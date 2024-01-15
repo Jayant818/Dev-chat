@@ -20,6 +20,7 @@ import * as z from "zod";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
 import { createQuestion } from "@/lib/actions/question.action";
+import { useRouter, usePathname } from "next/navigation";
 
 export function ProfileForm() {
 	// 1. Define your form.
@@ -35,8 +36,10 @@ interface Props {
 	userId: string;
 }
 const Question = ({ userId }: Props) => {
+	const router = useRouter();
 	const editorRef = useRef(null);
 	const [isSubmitting, setisSubmitting] = useState(false);
+	const pathname = usePathname();
 	const form = useForm<z.infer<typeof questionSchema>>({
 		resolver: zodResolver(questionSchema),
 		defaultValues: {
@@ -64,7 +67,10 @@ const Question = ({ userId }: Props) => {
 				// JSON.parse - JSON string ko js object mai convert kar dega which we can furthur use to get data from mongodb
 				// mongodb ko yhi chalte hai
 				author: JSON.parse(userId),
+				path: pathname,
 			});
+
+			router.push("/");
 		} catch (error) {
 		} finally {
 			setisSubmitting(false);

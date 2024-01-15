@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import Filter from "@/components/shared/Filter";
 import LocalFilter from "@/components/shared/LocalFilter";
@@ -10,48 +10,58 @@ import Image from "next/image";
 import NoResult from "@/components/shared/NoResult";
 import { HomePageFilters } from "@/constants/filter";
 import QuestionCards from "@/components/cards/QuestionCards";
+import { getQuestions } from "@/lib/actions/question.action";
 
-export default function Home() {
-	const questions = [
-		{
-			_id: 1,
-			title: "Cascading Deletes in SQLAlchemy?",
-			tags: [
-				{ _id: 1, name: "Python" },
-				{ _id: 2, name: "Sql" },
-				{ _id: 3, name: "Database" },
-			],
-			author: {
-				_id: "unique_author_id_1",
-				name: "Jayant",
-				picture: "url_to_author_picture_1.jpg",
-			},
-			upVotes: 20,
-			// answer: 67,
-			answer: [],
-			// answer: [],
-			views: 3,
-			createdAt: new Date("2023-01-01"),
-		},
-		{
-			_id: 2,
-			title: "Working with React Hooks",
-			tags: [
-				{ _id: 4, name: "React" },
-				{ _id: 5, name: "JavaScript" },
-			],
-			author: {
-				_id: "unique_author_id_2",
-				name: "Alice",
-				picture: "url_to_author_picture_2.jpg",
-			},
-			upVotes: 15,
-			// answer: 678,
-			answer: [],
-			views: 8,
-			createdAt: new Date("2023-02-15"),
-		},
-	];
+export default async function Home() {
+	// Steps
+	// Make a fn in the question.action.ts but req- Post How??
+	// return all the Data questions , ab isme referance ka bhi chakar hai
+	// tag ka reference de rakha hai unko bhi find karna padega with their id's
+	// structure karna padega
+	// yaha populate karna padega
+	// const questions = [
+	// 	{
+	// 		_id: 1,
+	// 		title: "Cascading Deletes in SQLAlchemy?",
+	// 		tags: [
+	// 			{ _id: 1, name: "Python" },
+	// 			{ _id: 2, name: "Sql" },
+	// 			{ _id: 3, name: "Database" },
+	// 		],
+	// 		author: {
+	// 			_id: "unique_author_id_1",
+	// 			name: "Jayant",
+	// 			picture: "url_to_author_picture_1.jpg",
+	// 		},
+	// 		upVotes: 20,
+	// 		// answer: 67,
+	// 		answer: [],
+	// 		// answer: [],
+	// 		views: 3,
+	// 		createdAt: new Date("2023-01-01"),
+	// 	},
+	// 	{
+	// 		_id: 2,
+	// 		title: "Working with React Hooks",
+	// 		tags: [
+	// 			{ _id: 4, name: "React" },
+	// 			{ _id: 5, name: "JavaScript" },
+	// 		],
+	// 		author: {
+	// 			_id: "unique_author_id_2",
+	// 			name: "Alice",
+	// 			picture: "url_to_author_picture_2.jpg",
+	// 		},
+	// 		upVotes: 15,
+	// 		// answer: 678,
+	// 		answer: [],
+	// 		views: 8,
+	// 		createdAt: new Date("2023-02-15"),
+	// 	},
+	// ];
+
+	const result = await getQuestions({});
+	console.log(result);
 
 	return (
 		<>
@@ -82,9 +92,9 @@ export default function Home() {
 			<HomeFilters />
 
 			<div className="mt-10 flex flex-col w-full gap-6">
-				{questions.length > 0 ? (
+				{result.questions.length > 0 ? (
 					<>
-						{questions.map((question) => (
+						{result.questions.map((question) => (
 							<QuestionCards
 								key={question._id}
 								_id={question._id}
@@ -92,7 +102,7 @@ export default function Home() {
 								tags={question.tags}
 								author={question.author}
 								upVotes={question.upVotes}
-								answer={question.answer}
+								answers={question.answers}
 								views={question.views}
 								createdAt={question.createdAt}
 							/>
