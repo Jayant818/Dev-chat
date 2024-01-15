@@ -30,7 +30,11 @@ export function ProfileForm() {
 // 1) Edit k liye - type - edit , Button [ Edit a Question ] , Server ko call alag alag jayegi
 // 2) Create k liye - type - create , Button alag hoga [Ask a Question] Type , isme bhi server call alag jayegi
 const type: string = "create"; // | 'edit'
-const Question = () => {
+
+interface Props {
+	userId: string;
+}
+const Question = ({ userId }: Props) => {
 	const editorRef = useRef(null);
 	const [isSubmitting, setisSubmitting] = useState(false);
 	const form = useForm<z.infer<typeof questionSchema>>({
@@ -52,12 +56,18 @@ const Question = () => {
 			// Get all the values from the form
 			// make an async call to your  API - Create a Question | Edit a Question
 			// Direct to the Home Page if SuccessFull
-			await createQuestion({});
+			await createQuestion({
+				title: values.title,
+				content: values.explanation,
+				tags: values.tags,
+				// we need to get the author id from mongoDB
+				author: JSON.parse(userId),
+			});
 		} catch (error) {
 		} finally {
 			setisSubmitting(false);
 		}
-		console.log(values);
+		// console.log();
 	}
 
 	const handleKeyDown = (
