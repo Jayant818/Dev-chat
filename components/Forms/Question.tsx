@@ -61,6 +61,8 @@ const Question = ({ userId }: Props) => {
 				content: values.explanation,
 				tags: values.tags,
 				// we need to get the author id from mongoDB
+				// JSON.parse - JSON string ko js object mai convert kar dega which we can furthur use to get data from mongodb
+				// mongodb ko yhi chalte hai
 				author: JSON.parse(userId),
 			});
 		} catch (error) {
