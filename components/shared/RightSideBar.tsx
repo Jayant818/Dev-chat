@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import RenderTag from "./RenderTag";
 
@@ -13,6 +13,7 @@ const RightSideBar = () => {
 				<h3 className="h3-bold">Top Questions</h3>
 				{hotQuestions.map((question: any) => (
 					<Link
+						key={question._id} // Add key prop here
 						href={`/question/${question._id}`}
 						className="flex gap-7 items-center justify-center"
 					>
