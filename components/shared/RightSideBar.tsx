@@ -14,7 +14,7 @@ const RightSideBar = () => {
 			<div>
 				{/*Questions  */}
 				<h3 className="h3-bold">Top Questions</h3>
-				{hotQuestions.map((question) => (
+				{hotQuestions.map((question: any) => (
 					<Link
 						href={`/question/${question._id}`}
 						className="flex gap-7 items-center justify-center"
@@ -35,7 +35,7 @@ const RightSideBar = () => {
 			<div className="mt-16">
 				<h3 className="h3-bold text-dark200_light900">Popular Tags</h3>
 				<div className="flex flex-col gap-4 mt-7">
-					{popularTags.map((tag) => (
+					{popularTags.map((tag: any) => (
 						<RenderTag
 							key={tag._id}
 							_id={tag._id}
