@@ -12,3 +12,11 @@ _WebHooks kya hai_ - Using the webhooks ek app dusre app se bate kar sakta hai, 
 - Hamare case mai hum ishe clerk or MongoDB mai use kar rahe hai
 
 https://clerk.com/docs/users/sync-data#sync-clerk-data-to-your-backend-with-webhooks
+
+![Alt text](image-1.png)
+
+---
+
+# Building Community Page
+
+## Learnings

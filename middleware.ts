@@ -9,8 +9,14 @@ export default authMiddleware({
 		"/api/webhooks(.*)",
 		"/question/:id",
 		"/jobs",
+		"tags",
+		"tags/:id",
 		"/community",
 	],
+	ignoredRoutes:[
+		"/api/webhooks",
+		"/api/chatgpt"
+	]
 });
 
 export const config = {
