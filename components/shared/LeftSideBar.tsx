@@ -50,13 +50,14 @@ const LeftSideBar = () => {
 			<div>
 				<SignedOut>
 					<div className="flex flex-col gap-3">
-						<Link href="/">
+						<Link href="/sign-in">
 							<Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
 								<Image
 									src="/assets/icons/account.svg"
+									alt="sign in"
 									width={20}
 									height={20}
-									alt="LogIN"
+									className="invert-colors lg:hidden"
 								/>
 								<span className="primary-text-gradient max-lg:hidden">
 									Log In
@@ -64,17 +65,16 @@ const LeftSideBar = () => {
 							</Button>
 						</Link>
 
-						<Link href="/">
+						<Link href="/sign-up">
 							<Button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
 								<Image
 									src="/assets/icons/sign-up.svg"
+									alt="sign up"
 									width={20}
 									height={20}
-									alt="Sign Up"
+									className="invert-colors lg:hidden"
 								/>
-								<span className="primary-text-gradient max-lg:hidden">
-									Sign Up
-								</span>
+								<span className="max-lg:hidden">Sign Up</span>
 							</Button>
 						</Link>
 					</div>
