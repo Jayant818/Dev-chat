@@ -43,7 +43,7 @@ export function ThemeProvider({
 	}, [mode]);
 
 	return (
-		<ThemeContext.Provider value={{ mode, setMode }}>
+		<ThemeContext.Provider value={{ mode: mode, setMode: setMode }}>
 			{children}
 		</ThemeContext.Provider>
 	);

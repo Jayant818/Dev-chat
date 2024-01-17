@@ -2,19 +2,10 @@
 
 import { Question } from "@/database/question.model";
 import { connectToDB } from "../mongoose";
-import mongoose from "mongoose";
 import { Tag } from "@/database/tag.model";
 import { User } from "@/database/user.model";
 import { CreateQuestionParams, GetQuestionsParams } from "./shared.types";
 import { revalidatePath } from "next/cache";
-import path from "path";
-
-interface questionProps {
-	title: string;
-	content: string;
-	tags: string[];
-	author: string;
-}
 
 export async function getQuestions(params: GetQuestionsParams) {
 	// hamesha backend mai try and catch block lagao orr database se connect karo
