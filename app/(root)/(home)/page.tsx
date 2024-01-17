@@ -1,7 +1,6 @@
 // "use client";
 import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import Filter from "@/components/shared/Filter";
-import LocalFilter from "@/components/shared/LocalFilter";
 import { Button } from "@/components/ui/button";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
