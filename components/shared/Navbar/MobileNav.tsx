@@ -5,19 +5,15 @@ import {
 	Sheet,
 	SheetClose,
 	SheetContent,
-	SheetDescription,
 	SheetHeader,
-	SheetTitle,
 	SheetTrigger,
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
 import { sidebarLinks } from "@/constants";
 import { Button } from "@/components/ui/button";
-import { buttonVariants } from "@/components/ui/button";
-import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignedOut } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
-import { Sidebar } from "lucide-react";
 
 export const SidebarContent = () => {
 	const pathname = usePathname();

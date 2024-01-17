@@ -5,8 +5,6 @@ import {
 	MenubarContent,
 	MenubarItem,
 	MenubarMenu,
-	MenubarSeparator,
-	MenubarShortcut,
 	MenubarTrigger,
 } from "@/components/ui/menubar";
 import { useTheme } from "@/context/ThemeProvider";
@@ -23,7 +21,7 @@ const Theme = () => {
 				<MenubarTrigger className="w-20 h-20  focus:bg-light-900 data-[state=open]:bg-light-900 dark:focus:bg-dark-200 dark:data-[state=open]:bg-dark-200">
 					<Image
 						src={
-							mode == "light"
+							mode === "light"
 								? "/assets/icons/sun.svg"
 								: "/assets/icons/moon.svg"
 						}

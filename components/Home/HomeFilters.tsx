@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filter";
 
 const HomeFilters = () => {
-	const [active, setActive] = useState<string>("");
+	const [active] = useState<string>("");
 
 	return (
 		<div className="mt-10 flex-wrap gap-3 md:flex">

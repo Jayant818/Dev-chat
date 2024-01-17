@@ -2,10 +2,8 @@
 import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import Filter from "@/components/shared/Filter";
 import { Button } from "@/components/ui/button";
-import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import HomeFilters from "@/components/Home/HomeFilters";
-import Image from "next/image";
 import NoResult from "@/components/shared/NoResult";
 import { HomePageFilters } from "@/constants/filter";
 import QuestionCards from "@/components/cards/QuestionCards";

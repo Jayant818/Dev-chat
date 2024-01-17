@@ -107,7 +107,7 @@ const Question = ({ userId }: Props) => {
 	};
 
 	const handleTagRemove = (tag: any, field: any) => {
-		const newTags = field.value.filter((t: string) => t != tag);
+		const newTags = field.value.filter((t: string) => t !== tag);
 		form.setValue("tags", newTags);
 	};
 
@@ -219,6 +219,7 @@ const Question = ({ userId }: Props) => {
 													onClick={() => {
 														handleTagRemove(tag, field);
 													}}
+													key={tag}
 												>
 													{tag}
 													<Image

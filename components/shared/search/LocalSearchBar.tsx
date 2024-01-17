@@ -22,7 +22,7 @@ const LocalSearchBar = ({
 		<div
 			className={` ${otherClasses} background-light800_darkgradient flex gap-2 items-center w-full p-2 rounded min-h-[56px] `}
 		>
-			{iconPosition == "left" && (
+			{iconPosition === "left" && (
 				<Image src={imgSrc} width={32} height={32} alt="Local Search" />
 			)}
 			<Input
@@ -31,7 +31,7 @@ const LocalSearchBar = ({
 				onChange={() => {}}
 				className="outline-none no-focus text-dark400_light800 border-0 shadow-none p-2 placeholder bg-transparent paragraph-regular"
 			/>
-			{iconPosition == "right" && (
+			{iconPosition === "right" && (
 				<Image src={imgSrc} width={32} height={32} alt="Local Search" />
 			)}
 		</div>
