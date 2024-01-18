@@ -17,6 +17,10 @@ https://clerk.com/docs/users/sync-data#sync-clerk-data-to-your-backend-with-webh
 
 ---
 
+### Clerk - https://clerk.com/docs/references/nextjs/auth-middleware
+
+---
+
 # Building Community Page
 
 ## Learnings
