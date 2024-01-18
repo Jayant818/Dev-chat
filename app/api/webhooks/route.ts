@@ -16,6 +16,8 @@ export async function POST(req: Request) {
 		);
 	}
 
+	console.log("HIII inside routes");
+
 	// Get the headers
 	const headerPayload = headers();
 	const svix_id = headerPayload.get("svix-id");
