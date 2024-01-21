@@ -5,10 +5,35 @@ import { connectToDB } from "../mongoose";
 import {
 	CreateUserParams,
 	DeleteUserParams,
+	GetAllUsersParams,
 	UpdateUserParams,
 } from "./shared.types";
 import { revalidatePath } from "next/cache";
 import { Question } from "@/database/question.model";
+
+export async function getAllUser(params: GetAllUsersParams) {
+	try {
+		connectToDB();
+
+		// 	page?: number;
+		// pageSize?: number;
+		// filter?: string;
+		// searchQuery?: string;
+		const { page = 1, pageSize = 10, filter, searchQuery } = params;
+
+		const user = await User.find({})
+			.populate({
+				path: "saved",
+				model: Question,
+			})
+			.sort({ reputation: -1 });
+		// sort based on views karna padega
+		return { users };
+	} catch (error) {
+		console.log("Error aa gaya bhai log", error);
+		throw error;
+	}
+}
 
 export async function getUserById(params: any) {
 	try {

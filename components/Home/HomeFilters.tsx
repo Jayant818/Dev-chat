@@ -9,7 +9,7 @@ const HomeFilters = () => {
 	const [active] = useState<string>("");
 
 	return (
-		<div className="mt-10 flex-wrap gap-3 md:flex">
+		<div className="mt-10 flex-wrap gap-5 md:flex">
 			{HomePageFilters.map((filter) => (
 				<Button
 					key={filter.value}
