@@ -21,6 +21,9 @@ https://clerk.com/docs/users/sync-data#sync-clerk-data-to-your-backend-with-webh
 
 ---
 
-# Building Community Page
+## Building Community Page
+
+- Build The UI , uske baad server action banao [ Db se connect karo data thao or return karo]
+- line-clamp-1
 
 ## Learnings

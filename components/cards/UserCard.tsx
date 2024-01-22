@@ -21,7 +21,7 @@ const UserCard = ({
 	_id,
 	clerk_id,
 }: UserCardProps) => {
-	const tags = ["Next JS", "SSR", "CSS"];
+	const tags = ["Next", "SSR", "CSS"];
 	// const tags = getTopInteractedTags(_id);
 	return (
 		<Link
@@ -44,11 +44,11 @@ const UserCard = ({
 				</div>
 				<div className="mt-5">
 					{tags.length > 0 ? (
-						<>
+						<div className="flex gap-3 items-center">
 							{tags.map((tag, i) => (
 								<RenderTag key={i} _id={i} name={tag} />
 							))}
-						</>
+						</div>
 					) : (
 						<Badge>No tags yet</Badge>
 					)}

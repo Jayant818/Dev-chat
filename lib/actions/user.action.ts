@@ -21,7 +21,7 @@ export async function getAllUser(params: GetAllUsersParams) {
 		// searchQuery?: string;
 		const { page = 1, pageSize = 10, filter, searchQuery } = params;
 
-		const user = await User.find({})
+		const users = await User.find({})
 			.populate({
 				path: "saved",
 				model: Question,
