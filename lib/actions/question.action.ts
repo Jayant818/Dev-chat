@@ -4,8 +4,34 @@ import { Question } from "@/database/question.model";
 import { connectToDB } from "../mongoose";
 import { Tag } from "@/database/tag.model";
 import { User } from "@/database/user.model";
-import { CreateQuestionParams, GetQuestionsParams } from "./shared.types";
+import {
+	CreateQuestionParams,
+	GetQuestionByIdParams,
+	GetQuestionsParams,
+} from "./shared.types";
 import { revalidatePath } from "next/cache";
+
+export async function getQuestionById(params: GetQuestionByIdParams) {
+	try {
+		connectToDB();
+		console.log("Param Guys", params);
+		const { questionId } = params;
+		console.log(questionId);
+		const question = await Question.findById(questionId)
+			.populate({ path: "tags", model: Tag, select: "_id name" })
+			.populate({
+				path: "author",
+				model: User,
+				select: "_id clerkId name picture",
+			});
+
+		console.log(question);
+		return question;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
+}
 
 export async function getQuestions(params: GetQuestionsParams) {
 	// hamesha backend mai try and catch block lagao orr database se connect karo

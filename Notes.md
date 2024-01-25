@@ -26,4 +26,39 @@ https://clerk.com/docs/users/sync-data#sync-clerk-data-to-your-backend-with-webh
 - Build The UI , uske baad server action banao [ Db se connect karo data thao or return karo]
 - line-clamp-1
 
-## Learnings
+## Dynamic Routing
+
+- For `Dynamic Routing` ek naya page banao [id].tsx (this will only catch till one slash)
+- isme use router use karo to get the query string
+
+```
+    const route = useRouter();
+
+    console.log(router.query.id);
+```
+
+`_ Catching All Segments_ - Name the file _[...slug].tsx_
+
+isme - /question/134,/question/123/123 sare honge par /question nhi honga
+
+/question [means without parameter wale ko use karne k luye optional catch parameter use karo - [ [...slug]].tsx ]
+`
+
+## useRouter Hook
+
+- It gives access to route[path] object
+
+_Properties_ -
+
+1. Pathname - path dedega pura
+   ```
+       router.pathname
+   ```
+2. query - to access the query string dynamic route parameter or simple route parameter
+
+_Methods_
+
+1. route.push
+   ```
+       router.push("/about");
+   ```
